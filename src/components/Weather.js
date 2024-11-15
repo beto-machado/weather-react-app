@@ -53,7 +53,7 @@ const Weather = () => {
           value={city} // vincula o valor do input ao estado
           onChange={handleChange} // manipula as alterações no campo
           placeholder="Digite o nome da cidade"
-          className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black" // Cor do texto alterada para preto
         />
         <button
           type="submit"
