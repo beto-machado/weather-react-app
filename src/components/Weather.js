@@ -13,7 +13,7 @@ const Weather = () => {
   const fetchWeather = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3000/api/weather", {
+      const response = await axios.get("https://weather-api-ly7c.onrender.com/api/weather", {
         params: { city },
       });
       setWeatherData(response.data);
