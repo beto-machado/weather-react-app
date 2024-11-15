@@ -1,11 +1,10 @@
-// src/components/Weather.js
 import React, { useState } from "react";
 import axios from "axios";
 import { WiThermometer, WiHumidity, WiStrongWind, WiCloud, WiDaySunny, WiRain, WiSnow, WiFog } from "react-icons/wi";
 import ReactLoading from 'react-loading';
 
 const Weather = () => {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(""); // estado para armazenar a cidade
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -33,6 +32,10 @@ const Weather = () => {
     }
   };
 
+  const handleChange = (e) => {
+    setCity(e.target.value); // atualiza o estado da cidade
+  };
+
   const getWeatherIcon = (description) => {
     if (description.includes("clear")) return <WiDaySunny size={48} />;
     if (description.includes("cloud")) return <WiCloud size={48} />;
@@ -43,12 +46,12 @@ const Weather = () => {
   };
 
   return (
-    <div className="weather-container max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
+    <div>
       <form onSubmit={handleSubmit} className="mb-6">
         <input
           type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={city} // vincula o valor do input ao estado
+          onChange={handleChange} // manipula as alterações no campo
           placeholder="Digite o nome da cidade"
           className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
